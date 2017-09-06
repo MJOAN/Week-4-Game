@@ -1,81 +1,73 @@
-
-
-// . = class  # = id
-
 // VARIABLES_____________________________________________________________________
   //_____________________________________________________________________________
 
-    var user, enemy; 
-    var enemyScore = [10, 15, 25, 5, 20];
-    var userScore = 0;
-    var enemyPoints = enemyScore[Math.floor(Math.random() * enemyScore.length)];  // randomize enemy points per click
-    
+    var fighter1 = "Admiral Gial Ackbar";
+    var fighter2 = "Ona Nobis"; 
+    var fighter3 = "Moff Tiaan Jerjerrod";
+    var fighter4 = "Poe Dameron";
 
-    
-    document.getElementById("text1").innerHTML = userText; 
-    document.getElementById("text2").innerHTML = enemyText;
+    var healthPoints = [10, 11, 12, 4, 2, 5, 20, 18, 8, 2, 3, 4, 6, 8, 34, 3]; 
+    var attackPoints = healthPoints[Math.round(Math.random() * 10)];
+    var counterAttackPower = healthPoints[Math.round(Math.random() * 10)];
 
     var fightStatus = {
-        u1: ["You attacked " + user + " for " + userScore + " damage."]
-    var enemyText = "You attacked " + enemy + " for " + enemyScore + " damage." 
-
-
-
-
-    document.querySelector("#points").innerHTML = html;
+        s1: ["You attacked " + user + " for " + userScore + " damage, and " + enemy + " attacked you back for " + enemyScore + " damage."]
+        s2: ["You have defeated " + enemy + " you can choose to fight another enemy"]
+        s3: ["You have been defeated. Game is over until we battle again."] 
+    };
     
-
-    // assign text and points to each image 
+    // JQUERY API DOCS: https://api.jquery.com/image-selector/   OR  use  DOM querySelectorAll()
 
     var img_score1 = 
       $( "input:image" )
         .css({ background:"white", border:"1px black solid"
-        .text( "Score: " + score1 )
+        .text( "Health Points: " + score1 )
     });
 
     var img_score2 = 
       $( "input:image" )
         .css({ background:"white", border:"1px black solid"
-        .text( "Score: " + score2 )
+        .text( "Health Points: " + score2 )
     });
     
     var img_score3 = 
       $( "input:image" )
         .css({ background:"white", border:"1px black solid"
-        .text( "Score: " + score3 )
+        .text( "Health Points: " + score3 )
     });
     
     var img_score4 = 
       $( "input:image" )
         .css({ background:"white", border:"1px black solid"
-        .text( "Score: " + score4 )
+        .text( "Health Points: " + score4 )
     });
 
-
-  $(document).ready(function(){
+  // STEP 1 ____________________user clicks img stays in your character div rest imgs go to enemies div
       
-      // STEP 1 ____________________user clicks img stays in your character div rest imgs go to enemies div
+      $(document).ready(function(){
+
       $('#your-character').on("click", function() {
 
-          // keep img in your character div
+          // when clicked var user is your character and prepend to your-character div
           var user = $(this).click(function() {
           user.prependTo('#your-character').css( "border", "10px solid green");
 
-          // remaining imgs get appended to enemies div
-          $('.img').each(function() {
+          // remaining imgs get appended to enemies-available-to-attack div
+          $('.img-responsive').each(function() {
           var image = $(this).children(".img");
           image.remove();
-          // $(this).append($('#enemies-available-to-attack > div' ));
           $("#enemies-available-to-attack").append().css( "border", "10px solid red");
 
-      // STEP 2 _______________________user clicks enemies img to defender div rest stay in enemies div
+      // STEP 2 _______________________user clicks img to defender div rest stay in enemies div
 
         $("#enemies-available-to-attack").on("click", function() {
           
+          // when clicked, var enemy gets prepended to defender-area div
           var enemy = $(this).click(function() {
           enemy.prependTo('#defender-area');
 
-          $(".img").each(function() {
+          // remaining images stay in enemies-available-to-attack div
+          $(".img-responsive").each(function() {
           var image = $(this).children(".img");
           image.remove();
           $("#enemies-available-to-attack").append(img);
@@ -84,30 +76,35 @@
         });                               
       });
 
-      // STEP 3 _______________________start fight attack game and score counters
+      // STEP 3 _______________________increment counter randomly each click  
+      // STEP 4_______________________win and lose inner HTML 
 
+       $(".attack").on("click", function() {
+
+        var healthPoints = [10, 11, 12, 4, 2, 5, 20, 18, 8, 2, 3, 4, 6, 8, 34, 3]; 
+        var attackPower = healthPoints[Math.round(Math.random() * 10)];
+        var counterAttackPower = healthPoints[Math.round(Math.random() * 10)];
+   
+        if (this.click) {
+            attackPoints += Math.round(1 / 2);
+          }
+        enemy.damage(counterAttackPower);
   
-      if ((user === click) || (user === "p") || (user === "s")) {
+        else if (this.click) {
+            counterAttackPower == Math.round(1 / 2);
+          }
+        user.damage(attackPower); 
 
-        if ((user === "r") && (enemy === "s")) {
-          wins++;
-        } else if ((user === "r") && (enemy === "p")) {
-          losses++;
-        } else if ((user === "s") && (enemy === "r")) {
-          losses++;
-        } else if ((user === "s") && (enemy === "p")) {
-          wins++;
-        } else if ((user === "p") && (enemy === "r")) {
-          wins++;
-        } else if ((user === "p") && (enemy === "s")) {
-          losses++;
-        } else if (user === enemy) {
-          ties++;
+        document.getElementById("score-status").innerHTML = fightStatus.s1;
+      });
+
+        if (user === 0) { // you win
+          document.querySelector("score-status").innerHTML = fightStatus.s2;
         }
 
-      
-
-
-
+        else if (userScore === 0) { // you lose
+          document.querySelector("score-status").innerHTML = fightStatus.s3;
+        }
       }
-    };
+    });
+
