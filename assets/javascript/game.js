@@ -1,52 +1,142 @@
-<script type="text/javascript">
-    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-    var computerChoices = ["r", "p", "s"];
+// VARIABLES_____________________________________________________________________
+  //_____________________________________________________________________________
 
-    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
-    var wins = 0;
-    var losses = 0;
-    var ties = 0;
+    var fighter1 = "Admiral Gial Ackbar";
+    var fighter2 = "Ona Nobis"; 
+    var fighter3 = "Moff Tiaan Jerjerrod";
+    var fighter4 = "Poe Dameron";
+    var fighter1_hp, fighter2_hp, fighter3_hp, fighter4_hp = 0;
+    var s1, s2, s3, user, enemy, enemyScore, userScore;
 
-    // This function is run whenever the user presses a key.
-    document.onkeyup = function(event) {
+    var fightStatus = {
+        s1: ["You attacked " + user + " for " + userScore + " damage, and " + enemy + " attacked you back for " + enemyScore + " damage."]
+        s2: ["You have defeated " + enemy + " you can choose to fight another enemy"]
+        s3: ["You have been defeated. Game is over until we battle again."]
+    };
+    
+    // JQUERY API DOCS: https://api.jquery.com/image-selector/   OR  use  DOM querySelectorAll()
 
-      // Determines which key was pressed.
-      var userGuess = event.key;
-
-      // Randomly chooses a choice from the options array. This is the Computer's guess.
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-      // Reworked our code from last step to use "else if" instead of lots of if statements.
-
-      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
-      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
-
-        if ((userGuess === "r") && (computerGuess === "s")) {
-          wins++;
-        } else if ((userGuess === "r") && (computerGuess === "p")) {
-          losses++;
-        } else if ((userGuess === "s") && (computerGuess === "r")) {
-          losses++;
-        } else if ((userGuess === "s") && (computerGuess === "p")) {
-          wins++;
-        } else if ((userGuess === "p") && (computerGuess === "r")) {
-          wins++;
-        } else if ((userGuess === "p") && (computerGuess === "s")) {
-          losses++;
-        } else if (userGuess === computerGuess) {
-          ties++;
-        }
-
-        // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
-        var html =
-          "<p>You chose: " + userGuess + "</p>" +
-          "<p>The computer chose: " + computerGuess + "</p>" +
-          "<p>wins: " + wins + "</p>" +
-          "<p>losses: " + losses + "</p>" +
-          "<p>ties: " + ties + "</p>";
-
-        // Set the inner HTML contents of the #game div to our html string
-        document.querySelector("#game").innerHTML = html;
+    var fighter1 = {
+        name: "Admiral Gial Ackbar";
+        var attack = function() {
+        attackPower = 0;
+        counterAttackPower = 0;
+        healthPoints = 0;
+        .css(background:"white", border:"10px black solid")
+        .text( "Health Points: " + healthPoints)
       }
     };
-  </script>
+    fighter1.attack();
+
+    name: "Admiral Gial Ackbar";
+        var attack = function() {
+        attackPower = 0;
+        counterAttackPower = 0;
+        healthPoints = 0;
+        .css(background:"white", border:"10px black solid")
+        .text( "Health Points: " + healthPoints)
+      }
+    };
+    fighter1.attack();
+    
+    name: "Admiral Gial Ackbar";
+        var attack = function() {
+        attackPower = 0;
+        counterAttackPower = 0;
+        healthPoints = 0;
+        .css(background:"white", border:"10px black solid")
+        .text( "Health Points: " + healthPoints)
+      }
+    };
+    fighter1.attack();
+    
+    name: "Admiral Gial Ackbar";
+        var attack = function() {
+        attackPower = 0;
+        counterAttackPower = 0;
+        healthPoints = 0;
+        .css(background:"white", border:"10px black solid")
+        .text( "Health Points: " + healthPoints)
+      }
+    };
+    fighter1.attack();
+
+  // STEP 1 ____________________user clicks img your character div rest imgs go to enemies div
+      
+      $(document).ready(function(){
+
+        function moveImage() {
+
+      $("img").click(function() {
+          // when clicked var user is your character and prepend to your-character div
+          var user = $(this).click(function() {
+          user.prependTo('#your-character').css( "border", "10px solid green");
+
+
+          // remaining imgs get appended to enemies-available-to-attack div
+      $("img").each(function() {
+
+          var remaining_imgs = $(this).children("img");  // var image = remaining imgs = remove and append
+          remaining_imgs.append("#enemies-available-to-attack").css( "border", "10px solid red");
+      });
+
+      // STEP 2 _______________________user clicks img to defender div rest stay in enemies div
+       // do i need 2 functions?
+
+      $("img").click(function() {
+
+          // when clicked, var enemy gets prepended to defender-area div
+          var enemy = $(this).click(function() {
+          enemy.prependTo("#defender-area").css( "border", "10px solid black");;
+
+          // remaining images stay in enemies-available-to-attack div
+      $("img").each(function() {
+
+          var remaining_imgs = $(this).children("img");
+          remaining_imgs.append("#enemies-available-to-attack");
+
+      });
+          });
+        });                               
+      });
+
+      // STEP 3 _______________________increment counter randomly each click  
+
+       $(".attack").on("click", function() {
+
+        var healthPoints = Math.floor(Math.random() * 1000) + 1;
+        var attackPower = healthPoints[Math.round(Math.random() * 10)];
+        var counterAttackPower = healthPoints[Math.round(Math.random() * 10)];
+        var fightStatus = [];         
+
+
+        var attack = function attackFunction() {
+            if (this.click) {
+            
+            this.attackPoints += Math.round(1 / 2);
+            this.enemy.attack(counterAttackPower);
+            this.counterAttackPower -= Math.round(1 / 2);
+            this.user.attack(attackPower);   
+            $("#score-status").html(fightStatus.s1);
+
+    }
+  };
+       
+ /*       document.getElementById("test").addEventListener("click", function( event ) {
+        // display the current click count inside the clicked div
+        event.target.textContent = event.detail;
+        }, false);
+      */
+
+    // STEP 4_______________________win and lose inner HTML 
+
+        if (user === 0) { // you win
+          $("#score-status").html(fightStatus.s2);
+        }
+        else if (userScore === 0) { // you lose
+          $("#score-status").html(fightStatus.s3);
+        }
+      }
+
+  
+

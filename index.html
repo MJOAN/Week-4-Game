@@ -21,34 +21,34 @@
               <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;">Your Character</h2>
 
         <div class="col-md-2">
-        <img class="img-responsive" id="fighter1" src="./assets/images/character1.png" onclick="" alt="" style="">
+        <img class="img-responsive" id="fighter1_hp" src="./assets/images/character1.png" onclick="moveImage(this)" alt="" style="">
           <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 1px; color: #F5F5F5;">Admiral Gial Ackbar</h2> 
+            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Admiral Gial Ackbar</h2> 
             <p id="score1"></p>
           </div>
       </div>
 
         <div class="col-md-2">
-        <img class="img-responsive" id="fighter2" src="./assets/images/character2.png" onclick="" alt="" style="">
+        <img class="img-responsive" id="fighter2_hp" src="./assets/images/character2.png" onclick="moveImage(this)" alt="" style="">
           <div class="caption">
-           <h1 class="h4" style="margin: 1px; padding: 1px; color: #F5F5F5;">Ona Nobis</h1> 
+           <h1 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Ona Nobis</h1> 
             <p id="score2"></p>
           </div>
         </div>
   
         <div class="col-md-2">
-        <img class="img-responsive" id="fighter3" src="./assets/images/character3.png" onclick="" alt="" style="">
+        <img class="img-responsive" id="fighter3_hp" src="./assets/images/character3.png" onclick="moveImage(this)" alt="" style="">
           <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 1px; color: #F5F5F5;">Moff Tiaan Jerjerrod</h2> 
+            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Moff Tiaan Jerjerrod</h2> 
             <p id="score3"></p>
           </div>
         </div>
 
         <div class="col-md-2">
-        <img class="img-responsive" id="fighter4" src="./assets/images/character4.png" onclick="" alt="" style="">
+        <img class="img-responsive" id="fighter4_hp" src="./assets/images/character4.png" onclick="moveImage(this)" alt="" style="">
           <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 1px; color: #F5F5F5;">Poe Dameron</h2> 
-            <p id="score1">Score: </p>
+            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Poe Dameron</h2> 
+            <p id="score1"></p>
           </div>
       </div>
    
@@ -58,7 +58,7 @@
 
         <div id="fight-section">
             <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;">Fight Section</h2>
-            <button id="attack" type="submit" name="attack">Attack</button>
+            <button id="attack" type="submit" onclick="attackFunction()" name="attack">Attack</button>
         </div>
 
         <div id="defender-area">
@@ -88,9 +88,13 @@
     </div>
     
 
-    <script src="./assets/javascript/javascript.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/javascript/game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </body>
 
 </html>
