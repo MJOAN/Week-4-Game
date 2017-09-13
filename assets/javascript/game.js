@@ -70,41 +70,46 @@ function attackFunction() {
 
     let user = $("#your-character", "figure"); // let user === figure in yourchar div 
     let enemy = $("#defender-area", "figure"); // let enemy === figure in defender div
-    healthPoints = attackPower - counterAttackPower; // healthpoints for all are attack minus counter
+    healthPoints = attackPower - counterAttackPower; // healthpoints === attack minus counterAttack
 
-    user.attackPower = Math.floor(Math.pow(6)); // attack power set to user random base power 6
-    user.attackPower++; // === user damages enemy
-
+    attackPower = Math.floor(Math.log(6,2)); // attack power set to user random base power 6
+    attackPower++; // === user damages enemy
+    user.attackPower = document.getElementById("p:data-id");
+    user.healthPoints = document.getElementById("figcapture:id");
+    
     $("p:data-id", user).html(user.attackPower); // display innerHTML p:id user attack power
     $("figcapture:id", user).html(user.healthPoints);  // display healthpoints innerHTML figcaption:id user
   
-    enemy.counterAttackPower = Math.floor(Math.random() * 10); // let enemy counterattack === random number
-    enemy.counterAttackPower--; // enemy damages user
-
+    counterAttackPower = Math.floor(Math.random() * 10); // let enemy counterattack === random number
+    counterAttackPower--; // enemy damages user
+    enemy.attackPower = document.getElementById("p:data-id");
+    enemy.healthPoints = document.getElementById("figcapture:id");
+    
     $("p:data-id").html(enemy.counterAttackPower);     // display innerHTML p:id enemy attack power
     $("figcapture:id").html(enemy.healthPoints);  // display healthpoints innerHTML figcaption:id enemy
 
     $("#score-status").html(fight_status); // displays damage 
   }
   
-    if ($("#healthPoints", enemy) === 0) { // you win if enemy points are zero
+    if (enemy.healthPoints === 0) { // you win if enemy points are zero
+        
       $("#defender-area", "figure").remove();  // remove img from div
       $("#score-status").html(won_message);  // display won message
-     
+        
       $("#enemies-available-to-attack").on("click", "figure", function() {
         let enemy = $(this)  // move img to new div onclick
         $(this).append("#defender-area");
-    });
-
-    } else $("#healthPoints", user) === 0 {  // you lose if your points are zero
+      })
+    }; 
+    
+    if (user.healthPoints === 0) { // you lose if your points are zero
       $("#your-character", "figure").remove(); // remove your img from div
       $("#score-status").html(loss_message); // display loss message
-      setInterval("resetGame()", 10000);  // setInterval to 5 seconds then resetGame function
-    }
+      setInterval("resetGame()", 10000);  // setInterval to 5 seconds then resetGame function       
+      }
+    });
 
     function resetGame() { // resetGame function onclick innerHTML set attributes to "";
         document.querySelector("#score-status", "p:data-id", "score").innerHTML = "";
         window.location.reload();
     }
-
-};
