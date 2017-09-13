@@ -1,142 +1,110 @@
-// VARIABLES_____________________________________________________________________
-  //_____________________________________________________________________________
+var healthPoints, attackPower, counterAttackPower = 0;
+var s1, s2, s3, user, enemy, fighters;
+var fight_status = "You attacked " + enemy + " for " + attackPower + " damage, and " + enemy + " attacked you back for " + counterAttackPower + " damage.";
+var won_message = "You have defeated " + enemy + " you can choose to fight another enemy";
+var loss_message = "You have been defeated. Game is over until we battle again.";
 
-    var fighter1 = "Admiral Gial Ackbar";
-    var fighter2 = "Ona Nobis"; 
-    var fighter3 = "Moff Tiaan Jerjerrod";
-    var fighter4 = "Poe Dameron";
-    var fighter1_hp, fighter2_hp, fighter3_hp, fighter4_hp = 0;
-    var s1, s2, s3, user, enemy, enemyScore, userScore;
+$(document).ready(function() {
 
-    var fightStatus = {
-        s1: ["You attacked " + user + " for " + userScore + " damage, and " + enemy + " attacked you back for " + enemyScore + " damage."]
-        s2: ["You have defeated " + enemy + " you can choose to fight another enemy"]
-        s3: ["You have been defeated. Game is over until we battle again."]
+// fighters = [
+
+  var f1 = {
+    name: "Admiral Gial Ackbar",
+    // var attack: function() {
+    attackPower: 90,
+    counterAttackPower: 65,
+    // healthPoints: 0,
+    // .css(background:"white", border:"10px black solid")
+    // .text( "Health Points: " + f1.healthPoints)
     };
-    
-    // JQUERY API DOCS: https://api.jquery.com/image-selector/   OR  use  DOM querySelectorAll()
 
-    var fighter1 = {
-        name: "Admiral Gial Ackbar";
-        var attack = function() {
-        attackPower = 0;
-        counterAttackPower = 0;
-        healthPoints = 0;
-        .css(background:"white", border:"10px black solid")
-        .text( "Health Points: " + healthPoints)
-      }
+  var f2 = {
+    name: "Ona Nobis",
+    // var attack function() {
+    attackPower: 75,
+    counterAttackPower: 65,
+    // healthPoints: 0,
+    //.css(background:"white", border:"10px black solid")
+    // .text( "Health Points: " + f2.healthPoints)
     };
-    fighter1.attack();
 
-    name: "Admiral Gial Ackbar";
-        var attack = function() {
-        attackPower = 0;
-        counterAttackPower = 0;
-        healthPoints = 0;
-        .css(background:"white", border:"10px black solid")
-        .text( "Health Points: " + healthPoints)
-      }
+  var f3 = {
+    name: "Moff Tiaan Jerjerrod",
+    // var attack = function() {
+    attackPower: 45,
+    counterAttackPower: 55,
+    // healthPoints: 0,
+    // .css(background:"white", border:"10px black solid")
+    // .text( "Health Points: " + healthPoints)
     };
-    fighter1.attack();
-    
-    name: "Admiral Gial Ackbar";
-        var attack = function() {
-        attackPower = 0;
-        counterAttackPower = 0;
-        healthPoints = 0;
-        .css(background:"white", border:"10px black solid")
-        .text( "Health Points: " + healthPoints)
-      }
+
+  var f4 = {
+    name: "Poe Dameron",
+    // var attack = function() {
+    attackPower: 65,
+    counterAttackPower: 30,
+    // healthPoints: 0,
+    // .css(background:"white", border:"10px black solid")
+    // .text( "Health Points: " + healthPoints)
     };
-    fighter1.attack();
-    
-    name: "Admiral Gial Ackbar";
-        var attack = function() {
-        attackPower = 0;
-        counterAttackPower = 0;
-        healthPoints = 0;
-        .css(background:"white", border:"10px black solid")
-        .text( "Health Points: " + healthPoints)
-      }
-    };
-    fighter1.attack();
+// ];
 
-  // STEP 1 ____________________user clicks img your character div rest imgs go to enemies div
-      
-      $(document).ready(function(){
+    $("#characters").one("click", "figure", function() {
+        let user = $(this)
+        $(this).append("#your-character");
+        $("#characters>.char").append("#enemies-available-to-attack");
+    });
 
-        function moveImage() {
+    $("#enemies-available-to-attack").on("click", "figure", function() {
+        let enemy = $(this)
+        $(this).append("#defender-area");
 
-      $("img").click(function() {
-          // when clicked var user is your character and prepend to your-character div
-          var user = $(this).click(function() {
-          user.prependTo('#your-character').css( "border", "10px solid green");
+    });
+
+    $("#your-character", "img").css("border", "10px solid green");
+    $("enemies-available-to-attack", "img").css("border", "10px solid red");
+    $("#defender-area", "img").css("border", "10px solid black");
 
 
-          // remaining imgs get appended to enemies-available-to-attack div
-      $("img").each(function() {
+function attackFunction() {
 
-          var remaining_imgs = $(this).children("img");  // var image = remaining imgs = remove and append
-          remaining_imgs.append("#enemies-available-to-attack").css( "border", "10px solid red");
-      });
+    let user = $("#your-character", "figure"); // let user === figure in yourchar div 
+    let enemy = $("#defender-area", "figure"); // let enemy === figure in defender div
+    healthPoints = attackPower - counterAttackPower; // healthpoints for all are attack minus counter
 
-      // STEP 2 _______________________user clicks img to defender div rest stay in enemies div
-       // do i need 2 functions?
+    user.attackPower = Math.floor(Math.pow(6)); // attack power set to user random base power 6
+    user.attackPower++; // === user damages enemy
 
-      $("img").click(function() {
-
-          // when clicked, var enemy gets prepended to defender-area div
-          var enemy = $(this).click(function() {
-          enemy.prependTo("#defender-area").css( "border", "10px solid black");;
-
-          // remaining images stay in enemies-available-to-attack div
-      $("img").each(function() {
-
-          var remaining_imgs = $(this).children("img");
-          remaining_imgs.append("#enemies-available-to-attack");
-
-      });
-          });
-        });                               
-      });
-
-      // STEP 3 _______________________increment counter randomly each click  
-
-       $(".attack").on("click", function() {
-
-        var healthPoints = Math.floor(Math.random() * 1000) + 1;
-        var attackPower = healthPoints[Math.round(Math.random() * 10)];
-        var counterAttackPower = healthPoints[Math.round(Math.random() * 10)];
-        var fightStatus = [];         
-
-
-        var attack = function attackFunction() {
-            if (this.click) {
-            
-            this.attackPoints += Math.round(1 / 2);
-            this.enemy.attack(counterAttackPower);
-            this.counterAttackPower -= Math.round(1 / 2);
-            this.user.attack(attackPower);   
-            $("#score-status").html(fightStatus.s1);
-
-    }
-  };
-       
- /*       document.getElementById("test").addEventListener("click", function( event ) {
-        // display the current click count inside the clicked div
-        event.target.textContent = event.detail;
-        }, false);
-      */
-
-    // STEP 4_______________________win and lose inner HTML 
-
-        if (user === 0) { // you win
-          $("#score-status").html(fightStatus.s2);
-        }
-        else if (userScore === 0) { // you lose
-          $("#score-status").html(fightStatus.s3);
-        }
-      }
-
+    $("p:data-id", user).html(user.attackPower); // display innerHTML p:id user attack power
+    $("figcapture:id", user).html(user.healthPoints);  // display healthpoints innerHTML figcaption:id user
   
+    enemy.counterAttackPower = Math.floor(Math.random() * 10); // let enemy counterattack === random number
+    enemy.counterAttackPower--; // enemy damages user
 
+    $("p:data-id").html(enemy.counterAttackPower);     // display innerHTML p:id enemy attack power
+    $("figcapture:id").html(enemy.healthPoints);  // display healthpoints innerHTML figcaption:id enemy
+
+    $("#score-status").html(fight_status); // displays damage 
+  }
+  
+    if ($("#healthPoints", enemy) === 0) { // you win if enemy points are zero
+      $("#defender-area", "figure").remove();  // remove img from div
+      $("#score-status").html(won_message);  // display won message
+     
+      $("#enemies-available-to-attack").on("click", "figure", function() {
+        let enemy = $(this)  // move img to new div onclick
+        $(this).append("#defender-area");
+    });
+
+    } else $("#healthPoints", user) === 0 {  // you lose if your points are zero
+      $("#your-character", "figure").remove(); // remove your img from div
+      $("#score-status").html(loss_message); // display loss message
+      setInterval("resetGame()", 10000);  // setInterval to 5 seconds then resetGame function
+    }
+
+    function resetGame() { // resetGame function onclick innerHTML set attributes to "";
+        document.querySelector("#score-status", "p:data-id", "score").innerHTML = "";
+        window.location.reload();
+    }
+
+};

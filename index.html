@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-default">
         <div class="navbar-header">
             <a class="navbar-brand">Episode III: Battlefront, Star Wars RPG Game</a>
@@ -16,85 +17,71 @@
     </nav>
 
     <div class="container">
-    
-        <div id="your-character">   
-              <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;">Your Character</h2>
+        
+        <div id="characters">
 
-        <div class="col-md-2">
-        <img class="img-responsive" id="fighter1_hp" src="./assets/images/character1.png" onclick="moveImage(this)" alt="" style="">
-          <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Admiral Gial Ackbar</h2> 
-            <p id="score1"></p>
-          </div>
-      </div>
+        <div class="char col-sm-3">
+            <figure><img class="" src="./assets/images/character1.png" alt=""><figcaption id="f1" attr="f2." >Admiral Akbar<p data-id="healthPoints"> </p></figcaption></figure>
+        </div>
 
-        <div class="col-md-2">
-        <img class="img-responsive" id="fighter2_hp" src="./assets/images/character2.png" onclick="moveImage(this)" alt="" style="">
-          <div class="caption">
-           <h1 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Ona Nobis</h1> 
-            <p id="score2"></p>
-          </div>
+        <div class="char col-sm-3">
+             <figure><img class="" src="./assets/images/character2.png" alt=""><figcaption id="f2" attr="">Ona Nobis<p data-id="healthPoints"> </p></figcaption></figure>
+        </div>
+
+        <div class="char col-sm-3">
+            <figure><img class="" src="./assets/images/character3.png" alt=""><figcaption id="f3" attr="">Moff Tiaan<p data-id="healthPoints"> </p></figcaption></figure>
+        </div>
+
+        <div class="char col-sm-3">
+            <figure><img class="" src="./assets/images/character4.png" alt=""><figcaption id="f4" attr="">Poe Dameron<p data-id="healthPoints"> </p></figcaption></figure>
         </div>
   
-        <div class="col-md-2">
-        <img class="img-responsive" id="fighter3_hp" src="./assets/images/character3.png" onclick="moveImage(this)" alt="" style="">
-          <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Moff Tiaan Jerjerrod</h2> 
-            <p id="score3"></p>
-          </div>
         </div>
+     </div> <!--closing div characters tag-->
 
-        <div class="col-md-2">
-        <img class="img-responsive" id="fighter4_hp" src="./assets/images/character4.png" onclick="moveImage(this)" alt="" style="">
-          <div class="caption">
-            <h2 class="h4" style="margin: 1px; padding: 5px; color: #F5F5F5;">Poe Dameron</h2> 
-            <p id="score1"></p>
-          </div>
-      </div>
-   
+    <div class="row-md-1">
+        <div id="your-character">
+            <h2 class="h2">Your Character</h2>
+        </div>
+    </div>
+
+    <div class="row-md-1">
         <div id="enemies-available-to-attack">
-        <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;" >Enemies Available to Attack</h2>
+            <h2 class="h2">Enemies Available to Attack</h2>
         </div>
+    </div>
 
+    <div class="row-md-1">
         <div id="fight-section">
-            <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;">Fight Section</h2>
-            <button id="attack" type="submit" onclick="attackFunction()" name="attack">Attack</button>
+            <h2 class="h2">Fight Section</h2>
+            <button type="submit" id="attack" name="attack" onclick="attackFunction();">Attack</button>
         </div>
+    </div>
 
+    <div class="row-md-1">
         <div id="defender-area">
-            <h2 class="h2" style="margin: 10px; padding: 5px; color: #F5F5F5;">Defender</h2>
+            <h2 class="h2">Defender</h2>
         </div>
+    </div>
 
-        <div class="col-lg-4">
+   <div class="row-lg-1">
          <div class="panel panel-default">
-           <div class="panel-heading">
-           <h3 class="h3 panel-title" style="margin: 10px; padding: 5px;">Episode III: Battlefront</h3>            
-           </div>
-           <div class="panel-body">
-            <p id="score-status">Status:</p>
-           </div>
+           <h3 class="h3 panel-title" id="score-status">Episode III: Battlefront Status:</h3>            
          </div>
-          <button id="restart" type="restart" name="restart">Restart</button>
-        </div>
-      
+    </div>  
+     <button type="submit" id="restart" name="restart" onclick="resetGame()";>Restart</button>
 
-      </div>
-    </div>
+   </div> <!--this div has to be before footer in order for click to work -->
 
-        <div id="footer">
-            <h4>&#169; Copyright, 2018, Mariam Joan</h4>
-        </div>
-    </div>
-    </div>
-    
 
+    <div id="footer">
+        <h4>&#169; Copyright, 2018, Mariam Joan</h4>
+    </div>
+ 
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/game.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 </body>
 
 </html>
