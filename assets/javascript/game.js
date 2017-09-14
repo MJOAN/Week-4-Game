@@ -4,11 +4,7 @@ var fight_status = "You attacked " + enemy + " for " + attackPower + " damage, a
 var won_message = "You have defeated " + enemy + " you can choose to fight another enemy";
 var loss_message = "You have been defeated. Game is over until we battle again.";
 
-$(document).ready(function() {
-
-// fighters = [
-
-  var f1 = {
+    var f1 = {
     name: "Admiral Gial Ackbar",
     // var attack: function() {
     attackPower: 90,
@@ -16,9 +12,9 @@ $(document).ready(function() {
     // healthPoints: 0,
     // .css(background:"white", border:"10px black solid")
     // .text( "Health Points: " + f1.healthPoints)
-    };
+    },
 
-  var f2 = {
+    var f2 = {
     name: "Ona Nobis",
     // var attack function() {
     attackPower: 75,
@@ -26,9 +22,9 @@ $(document).ready(function() {
     // healthPoints: 0,
     //.css(background:"white", border:"10px black solid")
     // .text( "Health Points: " + f2.healthPoints)
-    };
+    },
 
-  var f3 = {
+    var f3 = {
     name: "Moff Tiaan Jerjerrod",
     // var attack = function() {
     attackPower: 45,
@@ -36,9 +32,9 @@ $(document).ready(function() {
     // healthPoints: 0,
     // .css(background:"white", border:"10px black solid")
     // .text( "Health Points: " + healthPoints)
-    };
+    },
 
-  var f4 = {
+    var f4 = {
     name: "Poe Dameron",
     // var attack = function() {
     attackPower: 65,
@@ -46,17 +42,19 @@ $(document).ready(function() {
     // healthPoints: 0,
     // .css(background:"white", border:"10px black solid")
     // .text( "Health Points: " + healthPoints)
-    };
-// ];
+    }
+};
+
+$(document).ready(function() {
 
     $("#characters").one("click", "figure", function() {
-        let user = $(this)
+        var user = $(this)
         $(this).append("#your-character");
         $("#characters>.char").append("#enemies-available-to-attack");
     });
 
     $("#enemies-available-to-attack").on("click", "figure", function() {
-        let enemy = $(this)
+        var enemy = $(this)
         $(this).append("#defender-area");
 
     });
@@ -74,16 +72,12 @@ function attackFunction() {
 
     attackPower = Math.floor(Math.log(6,2)); // attack power set to user random base power 6
     attackPower++; // === user damages enemy
-    user.attackPower = document.getElementById("p:data-id");
-    user.healthPoints = document.getElementById("figcapture:id");
     
     $("p:data-id", user).html(user.attackPower); // display innerHTML p:id user attack power
     $("figcapture:id", user).html(user.healthPoints);  // display healthpoints innerHTML figcaption:id user
   
     counterAttackPower = Math.floor(Math.random() * 10); // let enemy counterattack === random number
     counterAttackPower--; // enemy damages user
-    enemy.attackPower = document.getElementById("p:data-id");
-    enemy.healthPoints = document.getElementById("figcapture:id");
     
     $("p:data-id").html(enemy.counterAttackPower);     // display innerHTML p:id enemy attack power
     $("figcapture:id").html(enemy.healthPoints);  // display healthpoints innerHTML figcaption:id enemy
@@ -92,24 +86,23 @@ function attackFunction() {
   }
   
     if (enemy.healthPoints === 0) { // you win if enemy points are zero
-        
       $("#defender-area", "figure").remove();  // remove img from div
       $("#score-status").html(won_message);  // display won message
         
       $("#enemies-available-to-attack").on("click", "figure", function() {
         let enemy = $(this)  // move img to new div onclick
-        $(this).append("#defender-area");
+        enemy.append("#defender-area");
       })
     }; 
     
     if (user.healthPoints === 0) { // you lose if your points are zero
       $("#your-character", "figure").remove(); // remove your img from div
       $("#score-status").html(loss_message); // display loss message
-      setInterval("resetGame()", 10000);  // setInterval to 5 seconds then resetGame function       
+      setInterval(resetGame(), 10000);  // setInterval to 5 seconds then resetGame function       
       }
     });
 
     function resetGame() { // resetGame function onclick innerHTML set attributes to "";
-        document.querySelector("#score-status", "p:data-id", "score").innerHTML = "";
+        document.querySelector("#score-status", "p:data-id", "figcaption:id").innerHTML = "";
         window.location.reload();
     }
