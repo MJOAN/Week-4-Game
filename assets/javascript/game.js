@@ -49,19 +49,15 @@ $(document).ready(function() {
 
     $("#characters").one("click", "figure", function() {
         var user = $(this)
-        $(this).append("#your-character");
-        $("#characters>.char").append("#enemies-available-to-attack");
+        $(this).append("#your-character").css("border", "10px solid green");
+        $("#characters>.char").append("#enemies-available-to-attack").css("border", "10px solid red");
     });
 
     $("#enemies-available-to-attack").on("click", "figure", function() {
         var enemy = $(this)
-        $(this).append("#defender-area");
+        $(this).append("#defender-area").css("border", "10px solid black");;
 
     });
-
-    $("#your-character", "img").css("border", "10px solid green");
-    $("enemies-available-to-attack", "img").css("border", "10px solid red");
-    $("#defender-area", "img").css("border", "10px solid black");
 
 
 function attackFunction() {
