@@ -3,7 +3,7 @@
 var healthPoints, attackPower, counterAttackPower = 0;
 var s1, s2, s3, f1, f2, f3, f4, user, enemy, fighters;
 
-var fight_status = "You attacked " + enemy + " for " + attackPower + " damage, and " + enemy + " attacked you back for " + counterAttackPower + " damage.";
+var fight_message = "You attacked " + enemy + " for " + attackPower + " damage, and " + enemy + " attacked you back for " + counterAttackPower + " damage.";
 var won_message = "You have defeated " + enemy + " you can choose to fight another enemy";
 var loss_message = "You have been defeated. Game is over until we battle again.";
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
         healthPoints = user.attackPower - enemy.counterAttackPower; // healthpoints === attack minus counterAttack
         $("figcapture:id").html(user.healthPoints); // display healthpoints innerHTML figcaption:id user
         $("figcapture:id").html(enemy.healthPoints); // display healthpoints innerHTML figcaption:id enemy
-        $("#score-status").html(fight_status); // displays damage 
+        $("#score-status").html(fight_message); // displays damage 
 
 
     if (enemy.healthPoints === 0) { // you win if enemy points are zero
