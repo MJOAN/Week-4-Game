@@ -18,70 +18,70 @@
 
     <div class="container">
         
-        <div id="characters">
+    <div id="characters"> 
 
-        <div class="char col-sm-3">
+        <div class="char col-md-3">
             <figure><img class="" src="./assets/images/character1.png" alt=""><figcaption id="f1" attr="" >Admiral Akbar<p data-id="healthPoints"> </p></figcaption></figure>
         </div>
 
-        <div class="char col-sm-3">
+        <div class="char col-md-3">
              <figure><img class="" src="./assets/images/character2.png" alt=""><figcaption id="f2" attr="">Ona Nobis<p data-id="healthPoints"> </p></figcaption></figure>
         </div>
 
-        <div class="char col-sm-3">
+        <div class="char col-md-3">
             <figure><img class="" src="./assets/images/character3.png" alt=""><figcaption id="f3" attr="">Moff Tiaan<p data-id="healthPoints"> </p></figcaption></figure>
         </div>
 
-        <div class="char col-sm-3">
+        <div class="char col-md-3">
             <figure><img class="" src="./assets/images/character4.png" alt=""><figcaption id="f4" attr="">Poe Dameron<p data-id="healthPoints"> </p></figcaption></figure>
         </div>
   
-        </div>
-     </div> <!--closing div characters tag-->
+    </div> <!--closing div character div tag-->
 
-    <div class="row-md-1">
-        <div id="your-character">
-            <h2 class="h2">Your Character</h2>
+        <div class="char row-sm-3">
+             <h2 class="h2">Your Character</h2>
+        <div id="your-character">    
+           
         </div>
-    </div>
+        </div>
 
-    <div class="row-md-1">
-        <div id="enemies-available-to-attack">
+         <div class="char row-sm-3">
             <h2 class="h2">Enemies Available to Attack</h2>
+        <div id="enemies-available-to-attack">
         </div>
-    </div>
-
-    <div class="row-md-1">
+        </div>
+  
+        <div class="char row-sm-3">
+        <h2 class="h2">Fight Section</h2>
         <div id="fight-section">
-            <h2 class="h2">Fight Section</h2>
-            <button type="submit" id="attack" name="attack" onclick="attackFunction();">Attack</button>
+            <button type="submit" id="#attack-button" name="attack" onclick="">Attack</button>
         </div>
-    </div>
-
-    <div class="row-md-1">
+        </div>
+        
+        <div class="char row-sm-3">
+        <h2 class="h2">Defender</h2>
         <div id="defender-area">
-            <h2 class="h2">Defender</h2>
         </div>
-    </div>
+   
 
-   <div class="row-lg-1">
+   <div class="col-lg-4">
          <div class="panel panel-default">
            <h3 class="h3 panel-title" id="score-status">Episode III: Battlefront Status:</h3>            
          </div>
     </div>  
-     <button type="submit" id="restart" name="restart" onclick="resetGame()";>Restart</button>
+     <button type="submit" id="restart-button" name="restart" onclick="">Restart</button>
 
    </div> <!--this div has to be before footer in order for click to work -->
 
 
     <div id="footer">
-        <h4>&#169; Copyright, 2018, Mariam Joan</h4>
+        <h5>&#169; Copyright, 2018, Mariam Joan</h5>
     </div>
  
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/game.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
