@@ -99,6 +99,7 @@ characterData();
         $("#your-character figcaption p").html(characters[attacker].healthPoints); // display healthpoints innerHTML figcaption:id user
         $("#defender-area figcaption p").html(characters[defender].healthPoints); // display healthpoints innerHTML figcaption:id enemy
         $("#score-status").text(fight_message); // displays damage 
+        winLoss();
 });
 
 
@@ -106,6 +107,9 @@ function winLoss() {
 
     var won_message = "You have defeated " + characters[defender].attackPower + " you can choose to fight another enemy";
     var loss_message = "You have been defeated. Game is over until we battle again.";
+
+    console.log("characters[attacker].healthPoints ", characters[attacker].healthPoints)
+    console.log("characters[defender].healthPoints ", characters[defender].healthPoints)
 
     if (characters[attacker].healthPoints > 0 && characters[defender].healthPoints <= 0) { // you win if enemy points are zero
         $("#defender-area figure").remove(); // remove img from div
@@ -134,16 +138,12 @@ function winLoss() {
     }
 };
 
-winLoss();
-
-
-});
-
 $("#restart-button").on("click", function() {
     document.querySelector("#score-status", "p:data-id", "figcaption:id").innerHTML = "";
     window.location.reload();
 });
 
 
+}); // end document ready
 
 
