@@ -3,9 +3,11 @@
 }
 
 body {
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     background-image: url("../images/background.jpg");
     background-repeat: repeat;
+    font-style: bold;
     margin: 25px;
 }
 
@@ -14,14 +16,13 @@ body {
 figure img {
     /*removed    img class="img-responsive">  or do    img  width: 100%  check again*/ 
     border: 8px solid white;
-    
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 figure {
-    width: 150px;
-    height: 225px;
-    border-radius: 8px;
+    width: 200px;
+    height: 260px;
+    border-radius: 10px;
     border: 5px solid white;
     text-align: center;
     margin: 5px;
@@ -31,27 +32,23 @@ figure {
 
 figcaption {
     padding: 5px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
 }
 
+/*  col-lg-4 */
+
+
 .row-sm-3 {
     display: inline-flex;
-    /*this changes display- check again*/
     margin: 5px;
     padding: 5px;
     position: relative;   /*this changes display- check again*/
-    border-image: 5px solid red;
+    border-image: 10px solid red;
     /*this is figures div*/
 }
 
-.row-lg-4 {
-    display: inline-flex;   /*this changes display- check again*/
-    margin: 5px;
-    padding: 5px;
-    position: relative;
-    /*this is your-enemy-defender div*/
-}
+
 
 .panel-title {
     margin: 1px;
@@ -62,7 +59,7 @@ figcaption {
     font-size: 15px;
     margin: 5px;
     padding: 1px;
-    color: #F5F5F5;
+    color: darkred;
 }
 
 .h2 {
