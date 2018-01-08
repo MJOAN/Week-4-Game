@@ -22,6 +22,7 @@ In this assignment, you'll create another fun and interactive game for web brows
 
 ![StarWars Screenshot HTML](gamescreen1.png)
 ![StarWars Screenshot Divs](gamescreen2.png)
+
 *HTML, CSS, and JQuery game web application based on Star Wars characters, fighting with attackPower and counterAttackPower to damage each others healthPoints  .*
 
 2. Here's how the app works:
