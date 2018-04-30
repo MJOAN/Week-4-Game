@@ -1,4 +1,3 @@
-
 var characters = {
 
     fighter_1: {
@@ -41,11 +40,9 @@ var counterAttackPower;
 var defender = "defender";
 var attacker = "attacker";
 
-
-
 $(document).ready(function() {
 
-var characterData = function() {   // here i want to load char data client side 
+var characterData = function() {  
     var charArray = Object.keys(characters);
     for (var i = 0; i < charArray.length; i++) {
         $("#" + charArray[i] + " > p").html(characters[charArray[i]].healthPoints);
@@ -53,7 +50,6 @@ var characterData = function() {   // here i want to load char data client side
 };
 
 characterData();
-
 
 function gameStart() {
 
@@ -111,15 +107,15 @@ gameStart();
 
 function winLoss() {
 
-    var won_message = "You have defeated " + characters[defender].attackPower + " you can choose to fight another enemy";
-    var loss_message = "You have been defeated. Game is over until we battle again.";
+    var won_message = "You have defeated " + characters[defender].name + " you can choose to fight another enemy";
+    var loss_message = "You have been defeated by " + characters[defender].name + ". Game is over until you have enough strength to battle. You must recharge your energies. Hit restart to play again.";
 
     console.log("characters[attacker].healthPoints ", characters[attacker].healthPoints);
     console.log("characters[defender].healthPoints ", characters[defender].healthPoints);
 
     if (characters[attacker].healthPoints > 0 && characters[defender].healthPoints <= 0) { // you win if enemy points are zero
-        $("#defender-area figure").remove(); // remove img from div
         $("#score-status").html(won_message); // display won message
+        $("#defender-area figure").remove(); // remove img from div
         $("#enemies-available-to-attack").show();
 
         $("#enemies-available-to-attack").on("click", "figure", function() {
@@ -129,15 +125,26 @@ function winLoss() {
         })
     }  // removing this code works until you fight another enemy and then -- it let your scores go below zero
 
-  /*  if (characters[defender].healthPoints > 0 && characters[attacker].healthPoints <= 0) { // you lose if your points are zero
-        $("#your-character figure").remove(); // remove your img from div
+    else if (characters[defender].healthPoints > 0 && characters[attacker].healthPoints <= 0) { // you lose defender wins
         $("#score-status").html(loss_message); // display loss message
-    }*/
+        $("#your-character figure").remove(); // remove your img from div
 
-    /*if (characters[defender].healthPoints <= 0 && $("#enemies-available-to-attack").empty()) {
-        $("#score-status").html("You've won the Star Wars Game! Please gather your strength and defeat your enemies again!");
+    }
+
+    else if (characters[defender].healthPoints <= 0 && characters[attacker].healthPoints <= 0) { // you lose if your points are zero
+        $("#score-status").html(loss_message); // display loss message
+        $("#your-character figure").remove(); // remove your img from div
+
+    }
+
+    else if (characters[defender].healthPoints <= 0 && $("#enemies-available-to-attack").empty()) {
+        $("#score-status").html("You've won the Star Wars Episode III Battlefront! This is not the end, you must play again!");
         //setInterval(resetGame(), 10000)
-    }*/
+    }
+
+    else {
+        $("#score-status").html("Attack!");
+    }
 };
 
 $("#restart-button").on("click", function() {
@@ -148,4 +155,3 @@ $("#restart-button").on("click", function() {
 
 
 }); // end document ready*/
-
