@@ -1,0 +1,26 @@
+{
+  "name": "week-4-game",
+  "version": "1.0.0",
+  "description": "interactive web RPG game using jquery",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJOAN/Week-4-Game.git"
+  },
+  "keywords": [
+    "RPG",
+    "star",
+    "wars",
+    "jquery",
+    "javascript"
+  ],
+  "author": "MJOAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MJOAN/Week-4-Game/issues"
+  },
+  "homepage": "https://github.com/MJOAN/Week-4-Game#readme"
+}
