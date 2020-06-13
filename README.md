@@ -3,29 +3,16 @@
 
 ### Overview
 
-In this assignment, you'll create another fun and interactive game for web browsers. This time, your app must dynamically update your HTML pages with the jQuery library.
+In this assignment, I created an RPG interactive game with HTML and the jQuery library. See demo [here](https://star-wars-rpg-game.herokuapp.com/).
 
-### Before You Begin
-
-1. Create a new GitHub repo called `week-4-game`, then clone it to your computer.
-2. Inside the `week-4-game` folder, create an `index.html` file.
-3. Still inside the `week-4-game` directory, make a folder called `assets`.
-   * Inside the `assets` directory, make three additional folders: `javascript`, `css` and `images`.
-     * In the `javascript` folder, make a file called `game.js`.
-     * In the `css` folder, make a file called `style.css`.
-     * In the `css` folder, make a file called `reset.css`. Paste into it the code found from the Meyerweb Reset.
-     * In the images folder, save any of the images you plan on using.
-4. Set up your repository to deploy to Github Pages.
-5. Push the above changes to GitHub. 
-
-### Option Two: Star Wars RPG Game (Challenge)
+### Star Wars RPG Game (Challenge)
 
 ![StarWars Screenshot HTML](gamescreen1.png)
 ![StarWars Screenshot Divs](gamescreen2.png)
 
 *HTML, CSS, and JQuery game web application based on Star Wars characters, fighting with attackPower and counterAttackPower to damage each others healthPoints  .*
 
-2. Here's how the app works:
+1. Here's how the app works:
 
    * When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
 
@@ -36,10 +23,10 @@ In this assignment, you'll create another fun and interactive game for web brows
      * Whenever the player clicks `attack`, their character damages the defender. The opponent will lose `HP` (health points). These points are displayed at the bottom of the defender's picture. 
      * The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their `HP`. These points are shown at the bottom of the player character's picture.
 
-3. The player will keep hitting the attack button in an effort to defeat their opponent.
+2. The player will keep hitting the attack button in an effort to defeat their opponent.
    * When the defender's `HP` is reduced to zero or below, remove the enemy from the `defender area`. The player character can now choose a new opponent.
 
-4. The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
+3. The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
 
 ##### Option 2 Game design notes
 
@@ -54,6 +41,6 @@ In this assignment, you'll create another fun and interactive game for web brows
 * No characters in the game can heal or recover Health Points. 
   * A winning player must pick their characters wisely by first fighting an enemy with low `Counter Attack Power`. This will allow them to grind `Attack Power` and to take on enemies before they lose all of their `Health Points`. Healing options would mess with this dynamic.
 * Your players should be able to win and lose the game no matter what character they choose. The challenge should come from picking the right enemies, not choosing the strongest player.
-**Good Luck!**
+
 ## Copyright
 Coding Boot Camp (C) 2016. All Rights Reserved.
